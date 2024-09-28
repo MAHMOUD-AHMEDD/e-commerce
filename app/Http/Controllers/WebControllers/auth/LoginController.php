@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\auth;
+namespace App\Http\Controllers\WebControllers\auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\WebControllers\Controller;
 use App\Http\Requests\LoginFormRequest;
+//use App\Http\Controllers\WebControllers\Controller;
+
 class LoginController extends Controller
 {
     public function index()

@@ -1,4 +1,7 @@
-@extends(auth()->user()->type === 'client' ? 'layout.layout_client' : 'layout.layout_supplier')
+@extends(
+    auth()->user()->type === 'admin' ? 'layout.layout_admin' :
+    (auth()->user()->type === 'client' ? 'layout.layout_client' : 'layout.layout_supplier')
+)
 @section('title','Products')
 @section('content')
     <div class="products">
@@ -17,8 +20,8 @@
                                 <h2>${{$product['price']}}</h2>
                                 <p class="desc">{{$product['info']}}</p>
                                 <div class="buttons">
-                                    <button class="add">Add to Favourite</button>
-                                    <button class="like"><span>♥</span></button>
+                                    <a class="add" href="{{asset('/products/AddToFavourite/'.$product->id)}}?id={{$product->id}}">Add to Favourite</a>
+{{--                                    <button class="like"><span>♥</span></button>--}}
                                     @if(auth()->id() ==$product['supplier_id'] ||auth()->user()['type']=='admin' )
                                         <a href="products/{{$product['id']}}/edit" class="add">Edit</a>
                                         <a href="/delete-item?model_name=Products&id={{$product->id}}" class="card-link">Delete Product</a>

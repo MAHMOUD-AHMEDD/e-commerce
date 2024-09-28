@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
 use App\Actions\DeleteFromPublicAction;
 use App\Models\Images;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\WebControllers\Controller;
 
 class DeleteController extends Controller
 {

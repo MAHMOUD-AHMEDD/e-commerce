@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductFormRequest;
-use App\Models\Products;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Events\SaveProductEvent;
+use App\Http\Requests\ProductFormRequest;
 use App\Models\Categories;
-use App\Models\Reviews;
+use App\Models\Products;
+use Illuminate\Support\Facades\Request;
+//use http\Env\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\FavoriteProducts;
+use App\Http\Controllers\WebControllers\Controller;
+
 class ProductControllerResource extends Controller
 {
     public function __construct()
@@ -68,10 +69,10 @@ class ProductControllerResource extends Controller
     }
     public function show_category($category_id)
     {
-        $products=Categories::query()->with('products')->where('id','=',$category_id)->get();
-//        dd($products[0]->products);
+        $category = Categories::with('products')->findOrFail($category_id);
+        $products = $category->products()->paginate(10);
         return view('products.index',[
-            'products'=>$products[0]->products
+            'products'=>$products
         ]);
     }
 
@@ -82,7 +83,15 @@ class ProductControllerResource extends Controller
     {
         $product=Products::query()->with('images')->with('categories')->find($id);
 //        dd((auth()->user()->type != 'admin'&&auth()->user()->type != 'supplier' ) );
-        if($product==null || $product->supplier_id != auth()->id() || (auth()->user()->type != 'admin'&&auth()->user()->type != 'supplier' )){
+//        || $product->supplier_id != auth()->id() || auth()->user()['type'] != 'admin'
+        if($product==null ){
+            return redirect()->to('/products');
+        }
+        elseif (auth()->user()['type'] == 'admin'){
+            $categories=Categories::all();
+            return view('products.save')->with('data',$product)->with('categories',$categories);
+        }
+        elseif($product->supplier_id != auth()->id()){
             return redirect()->to('/products');
         }
         $categories=Categories::all();
@@ -107,6 +116,15 @@ class ProductControllerResource extends Controller
             request()->file('images')??[],false));
         DB::commit();
         return redirect()->back()->with('message','product Updated successfully');
+    }
+    public function addToFavourite($id)
+    {
+        $product=Products::query()->where('id','=',$id);
+        $favourite=FavoriteProducts::query()->create([
+            'user_id'=>auth()->id(),
+            'product_id'=>$id,
+        ]);
+        return redirect()->back()->with('message','item has been added to favourite');
     }
 
     /**

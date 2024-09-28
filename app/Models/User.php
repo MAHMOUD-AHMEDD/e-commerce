@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'type',
+        'address',
     ];
 
     /**
@@ -55,5 +56,9 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany(Orders::class,'user_id');
+    }
+    public function FavoriteProducts()
+    {
+        return $this->belongsToMany(Products::class,'favorite_products','user_id','product_id');
     }
 }

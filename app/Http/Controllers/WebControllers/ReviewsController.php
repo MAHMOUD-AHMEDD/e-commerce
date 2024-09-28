@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Products;
+use App\Http\Controllers\WebControllers;
 use App\services\reviews\SaveReviewsService;
-class ReviewsController extends Controller
+use Illuminate\Http\Request;
+use App\Http\Controllers\WebControllers\Controller;
+
+class ReviewsController extends WebControllers\Controller
 {
     public function index()
     {

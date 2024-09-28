@@ -1,4 +1,7 @@
-@extends(auth()->user()->type === 'client' ? 'layout.layout_client' : 'layout.layout_supplier')
+@extends(
+    auth()->user()->type === 'admin' ? 'layout.layout_admin' :
+    (auth()->user()->type === 'client' ? 'layout.layout_client' : 'layout.layout_supplier')
+)
 @section('title','Product info')
 @section('content')
     <div class="container mt-5 mb-5">
@@ -65,7 +68,14 @@
             <div class="container">
                 @foreach($product[0]->reviews as $review )
                     <div class="cont">
-                        <div class="user_image"><img src="{{asset('images/'.$review->user->image->name)}}"></div>
+                        <div class="user_image">
+{{--                            <img src="{{asset('images/'.$review->user->image->name)}}">--}}
+                            @if($review->user->image?->name)
+                                <img src="{{ asset('images/'.$review->user->image->name) }}" alt="">
+                            @else
+                                <img src="{{ asset('images/default.png') }}" alt="">
+                            @endif
+                        </div>
                         <div class="name"><h4 style="font-size: 15px;">{{$review->user->username}}</h4></div>
                         <div class="rating"><p>Rating:{{$review->rating}}</p></div>
                         <div class="review_time"><p class="text-secondary">Reviewed in:{{$review->created_at}}</p></div>

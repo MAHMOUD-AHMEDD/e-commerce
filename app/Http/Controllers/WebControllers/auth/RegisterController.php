@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\auth;
+namespace App\Http\Controllers\WebControllers\auth;
 
-use App\Http\Controllers\Controller;
 use App\actions\ImageModelSave;
+use App\Http\Controllers\WebControllers\Controller;
+use App\Http\Requests\RegisterFormRequest;
 use App\services\users\SaveUserInfoService;
 use App\traits\upload_image;
-use App\Http\Requests\RegisterFormRequest;
+
 class RegisterController extends Controller
 {
     use upload_image;

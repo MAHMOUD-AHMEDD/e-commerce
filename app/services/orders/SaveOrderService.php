@@ -11,7 +11,7 @@ class SaveOrderService
         if ($product) {
             $order=Orders::query()->where('product_id','=',$product_id)->where('user_id','=',auth()->id())->get();
 //            dd($order);
-            if(!$order) {
+            if(!(sizeof($order)>0 && is_array($order))) {
                 Orders::query()->create([
                     'user_id' => auth()->id(),
                     'product_id' => $product_id,

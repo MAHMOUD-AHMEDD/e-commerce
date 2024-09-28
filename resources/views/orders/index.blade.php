@@ -1,4 +1,4 @@
-@extends('layout/layout_client')
+@extends('layout.layout_client')
 @section('title','cart')
 @section('content')
 
@@ -41,6 +41,11 @@
                             <div class="row my-4">
                                 <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
                                     <p class="lead fw-bold mb-0" style="color: #f37a27;">Total: <?php echo $total ?>$</p>
+                                </div>
+                            </div>
+                            <div class="row my-4">
+                                <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
+                                    <a href="{{asset('/checkout')}}" class="btn btn-warning">Checkout</a>
                                 </div>
                             </div>
 

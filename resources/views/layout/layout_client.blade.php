@@ -21,6 +21,12 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/contact">contact</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/profile">profile</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/productss/favourite">Favourite</a>
+            </li>
             <li class="nav-item dropdown">
                 <div class="btn-group">
                     <a class="nav-link btn-sm" type="button" href="/products">
@@ -37,7 +43,7 @@
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/orders/{{auth()->id()}}">orders</a>
+                <a class="nav-link" href="{{asset('/orders/'.auth()->id())}}">orders</a>
             </li>
             @guest
                 <li class="nav-item">

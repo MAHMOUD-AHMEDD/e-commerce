@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Orders;
-use App\Models\Products;
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\services\orders\SaveOrderService;
+use Illuminate\Http\Request;
+use App\Http\Controllers\WebControllers\Controller;
+
 class OrdersController extends Controller
 {
     public function index(Request $request)
@@ -26,5 +25,20 @@ class OrdersController extends Controller
 //        if($product_id)
         SaveOrderService::make($quantity,$product_id);
         return redirect()->back()->with('success','item has been added to the cart');
+    }
+    public function checkout(Request $request)
+    {
+        $user=User::query()->with('orders.product')->find(auth()->id());
+        $orders=$user->orders;
+        return view('orders.checkout',[
+            'user'=>$user,
+            'orders'=>$orders
+        ]);
+    }
+    public function confirmation(Request $request)
+    {
+        $user=User::query()->find(auth()->id());
+//        dd($user);
+        return view('orders.confirmation',compact('user'));
     }
 }

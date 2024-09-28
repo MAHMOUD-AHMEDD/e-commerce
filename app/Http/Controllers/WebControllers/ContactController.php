@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\Http\Controllers\Controller;
-use Fixture\PHP81\C;
-use Illuminate\Http\Request;
-use App\Models\Contacts;
+use App\Http\Controllers\WebControllers;
 use App\Http\Requests\ContactsFormRequest;
+use App\Models\Contacts;
+use App\Http\Controllers\WebControllers\Controller;
 class ContactController extends Controller
 {
     public function index()

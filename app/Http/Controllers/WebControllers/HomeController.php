@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Categories;
+use App\Http\Controllers\WebControllers\Controller;
+
 class HomeController extends Controller
 {
     public function index()

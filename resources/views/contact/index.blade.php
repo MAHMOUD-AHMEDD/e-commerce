@@ -1,4 +1,5 @@
-@extends(auth()->user()->type === 'client' ? 'layout.layout_client' : 'layout.layout_supplier')
+
+@extends('layout/layout_client')
 @section('title','Contact Us')
 @section('content')
     <div class="contain">

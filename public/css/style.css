@@ -1,6 +1,10 @@
 body{
     /*background-color: gray;*/
 }
+:root{
+    --color-background: #fae3ea;
+    --color-primary: #fc8080;
+}
 .contact_us form{
     max-width: 500px;
     margin: auto;
@@ -115,8 +119,9 @@ body{
     margin-right: 25px;
     text-align: justify;
 }
-.products .container .container button {
+.products .container .container a {
     /*background: darken(#e0c9cb, 10%);*/
+    text-decoration: none;
     padding: 10px;
     display: inline-block;
     outline: 0;
@@ -574,3 +579,293 @@ textarea {
 
 
 /*end of contact*/
+/*start of checkout*/
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.iphone h1{
+    font-size: 1.25rem;
+    /*font-size: var(--font-size-h1);*/
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.iphone h2{
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+legend {
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    padding: 0;
+}
+.iphone input{
+        border: 0;
+        color: inherit;
+        font: inherit;
+}
+.iphone input[type="radio"] {
+    accent-color: #fc8080;
+    accent-color: var(--color-primary);
+}
+.iphone table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.iphone tbody {
+    color: #b4b4b4;
+}
+
+.iphone td {
+    padding-top: 0.125em;
+    padding-bottom: 0.125em;
+}
+
+.iphone tfoot {
+    border-top: 1px solid #b4b4b4;
+    font-weight: 600;
+}
+.iphone .align {
+    display: grid;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-items: center;
+    place-items: center;
+}
+.iphone .button {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fc8080;
+    background-color: var(--color-primary);
+    border-radius: 999em;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    grid-gap: 0.5em;
+    gap: 0.5em;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    padding-left: 1em;
+    padding-right: 1em;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.iphone .button:focus,
+.button:hover {
+    background-color: #e96363;
+}
+.iphone .button--full {
+    width: 100%;
+}
+.iphone .card {
+    border-radius: 1em;
+    background-color: #fc8080;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 1em;
+}
+.iphone .form {
+    display: grid;
+    grid-gap: 2em;
+    gap: 2em;
+}
+.iphone .form__radios {
+    display: grid;
+    grid-gap: 1em;
+    gap: 1em;
+}
+
+.iphone .form__radio {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fefdfe;
+    border-radius: 1em;
+    -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1em;
+}
+.iphone .form__radio label {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    grid-gap: 1em;
+    gap: 1em;
+}
+.iphone .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.iphone .icon {
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    width: 1em;
+    vertical-align: middle;
+}
+
+.iphone {
+    background-color: #fbf6f7;
+    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#fbf6f7), to(#fff));*/
+    /*background-image: -o-linear-gradient(top, #fbf6f7, #fff);*/
+    background-image: linear-gradient(to bottom, #fbf6f7, #fff);
+    border-radius: 2em;
+    height: 812px;
+    -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
+    width: 375px;
+    overflow: auto;
+    padding: 2em;}
+.iphone {}
+.iphone {}
+.iphone {}
+.iphone {}
+/*end of checkout*/
+
+
+
+/*Start of confirmation*/
+.confirmation {
+    .card{
+        background-color: #fff;
+        width: 300px;
+        border: none;
+        border-radius: 16px;
+
+    }
+    .info{
+        line-height: 19px;
+    }
+
+    .name{
+        color: #4c40e0;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .order{
+        font-size: 14px;
+        font-weight: 400;
+        color: #b7b5b5;
+    }
+    .detail{
+
+        line-height:19px;
+    }
+
+    .summery{
+
+
+        color: #d2cfcf;
+        font-weight: 400;
+        font-size: 13px;
+    }
+    .new{
+
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    /*.money{*/
+
+
+    /*    font-size: 14px;*/
+    /*    font-weight:500;*/
+    /*}*/
+    .address{
+
+        color: #d2cfcf;
+        font-weight:500;
+        font-size:14px;
+    }
+
+    .last{
+
+        font-size: 10px;
+        font-weight: 500;
+
+    }
+
+
+    .address-line{
+        color: #4C40E0;
+        font-size: 11px;
+        font-weight: 700;
+    }
+    /*.text{*/
+
+    /*    line-height:15px;*/
+    /*}*/
+
+    /*End of confirmation*/
+
+}
+
+/*Start of profile*/
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ba68c8;
+}
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none;
+}
+.profile-button:hover {
+    background: #682773;
+}
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none;
+}
+.profile-button:active {
+    background: #682773;
+    box-shadow: none;
+}
+.back:hover {
+    color: #682773;
+    cursor: pointer;
+}
+.labels {
+    font-size: 11px;
+}
+.add-experience:hover {
+    background: #ba68c8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #ba68c8;
+}
+.rounded-circle{
+    width: 100%;
+}

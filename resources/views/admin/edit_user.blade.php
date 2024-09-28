@@ -1,5 +1,5 @@
-@extends('layout/layout_client')
-@section('title','Register')
+@extends('layout.layout_admin')
+@section('title', 'Edit User')
 @section('content')
     <div class="contact_us">
         <div class="container">
@@ -11,27 +11,21 @@
             @if(session('success'))
                 <p class="alert alert-success">{{session('success')}}</p>
             @endif
-            <form method="post" action="{{route('auth.register')}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('dashboard.update.user', $user->id)}}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
+
                 <div class="mb-3">
                     <label>Username</label>
-                    <input class="form-control" name="username" value="{{old('username')}}">
+                    <input class="form-control" name="username" value="{{ $user->username }}">
                 </div>
                 <div class="mb-3">
                     <label>Email</label>
-                    <input class="form-control" name="email" value="{{old('email')}}">
-                </div>
-                <div class="mb-3">
-                    <label>Password</label>
-                    <input class="form-control" type="password" name="password" value="{{old('password')}}">
-                </div>
-                <div class="mb-3">
-                    <label>Personal Image</label>
-                    <input class="form-control" name="image" type="file">
+                    <input class="form-control" name="email" value="{{ $user->email }}">
                 </div>
                 <div class="mb-3">
                     <label>address</label>
-                    <input class="form-control" name="address" value="{{old('address')}}" type="text">
+                    <input class="form-control" name="address" value="{{ $user->address }}">
                 </div>
                 <div class="mb-3">
                     <select class="form-control" name="type">
@@ -39,10 +33,16 @@
                         <option value="supplier">supplier</option>
                     </select>
                 </div>
-
-                <input type="submit" class="btn btn-success">
+                <div class="mb-3">
+                    <label>Password (leave blank if you don't want to change it)</label>
+                    <input class="form-control" type="password" name="password">
+                </div>
+                <div class="mb-3">
+                    <label>Personal Image (leave blank if you don't want to change it)</label>
+                    <input class="form-control" name="image" type="file">
+                </div>
+                <input type="submit" class="btn btn-success" value="Update User">
             </form>
         </div>
     </div>
-
 @endsection
