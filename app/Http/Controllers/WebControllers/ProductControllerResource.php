@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\FavoriteProducts;
 use App\Http\Controllers\WebControllers\Controller;
+use function PHPUnit\Framework\isEmpty;
+use function Webmozart\Assert\Tests\StaticAnalysis\isEmptyArray;
 
 class ProductControllerResource extends Controller
 {
@@ -120,11 +122,16 @@ class ProductControllerResource extends Controller
     public function addToFavourite($id)
     {
         $product=Products::query()->where('id','=',$id);
+        $find=FavoriteProducts::query()->where('user_id','=',auth()->id())->where('product_id','=',$id)->get();
+//        dd(sizeof($find));
+        if(sizeof($find)){
+            return redirect()->back()->with('error','item already in the favorite');
+        }
         $favourite=FavoriteProducts::query()->create([
             'user_id'=>auth()->id(),
             'product_id'=>$id,
         ]);
-        return redirect()->back()->with('message','item has been added to favourite');
+        return redirect()->back()->with('success','item has been added to favourite');
     }
 
     /**

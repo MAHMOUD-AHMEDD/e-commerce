@@ -10,6 +10,9 @@
                 @if(session('success'))
                     <p class="alert alert-success">{{session('success')}}</p>
                 @endif
+                    @if(session('error'))
+                    <p class="alert alert-danger">{{session('error')}}</p>
+                @endif
                 @foreach($products as $product)
                         <div class="container" onclick="location.href='products/{{$product->id}}';" style="position: relative;cursor: pointer;">
                             <div class="images">

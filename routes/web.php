@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class,'index'])->middleware('auth');
+Route::get('/', [ProductControllerResource::class,'index'])->middleware('auth');
 //Route::get('auth/login',)
 Route::group(['prefix'=>'/auth'],function (){
     Route::get('/register',[RegisterController::class,'index'])->name('register');
