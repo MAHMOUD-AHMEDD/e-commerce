@@ -40,7 +40,7 @@ Route::resources([
 Route::post('contacts', [ContactControllerApi::class, 'save']);
 
 
-Route::middleware('auth:api')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/orders', [OrdersControllerApi::class, 'index']);
 
@@ -53,7 +53,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/reviews/add/{product_id}', [ReviewsControllerApi::class, 'add']);
 });
 
-Route::group(['prefix'=>'/dashboard', 'middleware' => 'admin','auth:api'],function () {
+Route::group(['prefix'=>'/dashboard', 'middleware' => 'admin','auth:sanctum'],function () {
 
     Route::get('/users', [DashboardControllerApi::class, 'users']);
     Route::get('/users/{id}/edit', [DashboardControllerApi::class, 'edit_user']);
