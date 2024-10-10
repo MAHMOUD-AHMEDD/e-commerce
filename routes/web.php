@@ -53,7 +53,7 @@ Route::post('/confirmation',[OrdersController::class,'confirmation'])->name('con
 Route::get('/products/AddToFavourite/{id}',[ProductControllerResource::class,'addToFavourite'])->name('favourite.add');
 
 
-Route::get('/productss/favourite',[UserController::class,'showFavourite']);
+Route::get('/productss/favourite',[UserController::class,'showFavourite'])->middleware('auth');
 
 
 Route::group(['prefix'=>'/dashboard', 'middleware' => 'admin'],function () {
@@ -69,4 +69,5 @@ Route::group(['prefix'=>'/dashboard', 'middleware' => 'admin'],function () {
 });
 Route::get('/profile',[UserController::class , 'edit_user'])->name('profile.show');
 Route::put('/profile/update',[UserController::class , 'update_user'])->name('profile.update');
+Route::get('/notifications',[UserController::class,'notification'])->middleware('auth');
 

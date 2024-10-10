@@ -24,9 +24,14 @@ class DeleteController extends Controller
 //            if($item != null){
 //                $item->delete();
 //                return redirect()->back();
-
-            DB::select('DELETE FROM ' . request('model_name') . ' WHERE id=' . request('id'));
-            return redirect()->back();
+            if(request('model_name')==='notifications'){
+                DB::select("DELETE FROM " . request('model_name') . " WHERE id='" . request('id') . "'");
+                return redirect()->back();
+            }
+            else {
+                DB::select('DELETE FROM ' . request('model_name') . ' WHERE id=' . request('id'));
+                return redirect()->back();
+            }
         }
 //        }
     }

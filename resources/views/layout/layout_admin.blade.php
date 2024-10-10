@@ -41,6 +41,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{route('dashboard.orders')}}">Orders</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/notifications">notifications</a>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <div class="btn-group">
                                             <a class="nav-link btn-sm" type="button" href="/products">

@@ -25,6 +25,9 @@
                 <a class="nav-link" href="/profile">profile</a>
             </li>
             <li class="nav-item active">
+                <a class="nav-link" href="/notifications">notifications</a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" href="/productss/favourite">Favourite</a>
             </li>
             <li class="nav-item dropdown">

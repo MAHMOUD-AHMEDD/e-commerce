@@ -6,6 +6,8 @@ use App\Models\FavoriteProducts;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\WebControllers\Controller;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -51,5 +53,16 @@ class UserController extends Controller
             'favourites'=>$favourites,
 
         ]);
+    }
+    public function notification()
+    {
+        $notifications=DB::table('notifications')->where('notifiable_id','=',auth()->id())->get();
+//        dd(json_decode($notifications[0]->data));
+        foreach ($notifications as $notification){
+            $notification->data=json_decode($notification->data);
+        }
+//        $notifications=json_decode($notifications);
+
+        return view('user.notification',compact('notifications'));
     }
 }
