@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProductControllerResource::class,'index'])->middleware('auth');
+Route::get('/', [ProductControllerResource::class,'index'])->middleware('auth')->name('home');
 //Route::get('auth/login',)
 Route::group(['prefix'=>'/auth'],function (){
     Route::get('/register',[RegisterController::class,'index'])->name('register');
@@ -32,8 +32,8 @@ Route::group(['prefix'=>'/auth'],function (){
 
     Route::get('/login',[LoginController::class,'index'])->name('login');
     Route::post('/login-post',[LoginController::class,'save'])->name('auth.login');
-});
-Route::get('/logout',[LogoutController::class,'logout_system'])->middleware('auth');
+});Route::get('/logout',[LogoutController::class,'logout_system'])->middleware('auth');
+
 
 
 Route::resources([

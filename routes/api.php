@@ -10,6 +10,7 @@ use App\Http\Controllers\ApiControllers\ContactControllerApi;
 use App\Http\Controllers\ApiControllers\OrdersControllerApi;
 use App\Http\Controllers\ApiControllers\ReviewsControllerApi;
 use App\Http\Controllers\ApiControllers\DashboardControllerApi;
+use App\Http\Controllers\SoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Route::post('/reg',SoController::class);
 
 
 //Route::get('auth/login',)
@@ -66,3 +68,6 @@ Route::group(['prefix'=>'/dashboard', 'middleware' => 'admin','auth:sanctum'],fu
     Route::get('/orders', [DashboardControllerApi::class, 'orders']);
 
 });
+
+
+

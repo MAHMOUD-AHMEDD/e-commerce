@@ -615,10 +615,13 @@ body {
 }
 .reviews .user_image{
     width: 46px;
+    margin-right: 20px;
     display: inline-block;
 }
 .reviews .user_image img{
-    width: 100%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 .reviews .rating p{
     font-size: 15px;
